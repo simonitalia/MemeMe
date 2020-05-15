@@ -241,7 +241,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     
         //set cancel button state
-        cancelButton.isEnabled = topTextField.text == DefaultText.top && bottomTextField.text == DefaultText.bottom ? false : true
+        if imagePickerView.image == nil {
+            cancelButton.isEnabled = topTextField.text == DefaultText.top && bottomTextField.text == DefaultText.bottom ? false : true
+        }
     }
     
     
