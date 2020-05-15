@@ -115,6 +115,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 textField.delegate = self
                 textField.defaultTextAttributes = textFieldAttributes
                 textField.textAlignment = .center
+                textField.adjustsFontSizeToFitWidth = true
             }
         }
     }

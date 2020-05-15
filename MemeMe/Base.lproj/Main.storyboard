@@ -36,7 +36,12 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKi-pO-fos">
-                                <rect key="frame" x="185.5" y="64" width="4" height="18.5"/>
+                                <rect key="frame" x="10" y="64" width="355" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-Px-cVg">
+                                <rect key="frame" x="10" y="584.5" width="355" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -58,11 +63,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="43K-A8-VZR"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-Px-cVg">
-                                <rect key="frame" x="185.5" y="584.5" width="4" height="18.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -71,15 +71,17 @@
                             <constraint firstItem="Ils-MA-lPe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AcV-ic-0aK"/>
                             <constraint firstItem="7Ob-ay-x1D" firstAttribute="top" secondItem="V3q-Px-cVg" secondAttribute="bottom" constant="20" id="Co9-n3-1IM"/>
                             <constraint firstItem="SKi-pO-fos" firstAttribute="top" secondItem="Ils-MA-lPe" secondAttribute="bottom" constant="20" id="GNa-2K-TSq"/>
-                            <constraint firstItem="SKi-pO-fos" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IVM-iR-gpu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SKi-pO-fos" secondAttribute="trailing" constant="10" id="K0x-VD-5NA"/>
+                            <constraint firstItem="V3q-Px-cVg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="KAI-H8-KNJ"/>
                             <constraint firstItem="Ils-MA-lPe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UHW-hi-0mz"/>
                             <constraint firstItem="7Ob-ay-x1D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xcp-Mq-RcW"/>
-                            <constraint firstItem="V3q-Px-cVg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eGl-zA-lFQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FWU-uL-xK0" secondAttribute="bottom" id="iaw-lF-qmW"/>
                             <constraint firstItem="7Ob-ay-x1D" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="it5-Yn-b4S"/>
                             <constraint firstItem="FWU-uL-xK0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jYH-6W-453"/>
+                            <constraint firstItem="SKi-pO-fos" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jZV-DL-fm0"/>
                             <constraint firstItem="7Ob-ay-x1D" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rTJ-Mq-rQ5"/>
                             <constraint firstItem="FWU-uL-xK0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sQv-Rz-BMR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V3q-Px-cVg" secondAttribute="trailing" constant="10" id="y3G-sZ-CVV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
