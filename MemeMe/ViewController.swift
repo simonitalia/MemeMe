@@ -9,29 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
+    
+    //default text
+    enum DefaultText {
+        static let top = "TOP"
+        static let bottom = "BOTTOM"
+    }
 
     //properties
+    var meme: Meme!
     var imagePicker: UIImagePickerController!
     
-    let textFieldAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: 1
-    ]
-    
     //MARK:- storyboard outlets
+    //toolbars
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    
+    //action buttons
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var shareActionButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
+    //text fieldss
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    //image view
     @IBOutlet weak var imagePickerView: UIImageView!
     
     
     //MARK:- storyboard actions
-    //TOP Toolbar
+    //TOP Toolbar actions
     //action to generate and share memed image
     @IBAction func shareActionButtonTapped(_ sender: Any) {
         shareMeme()
@@ -43,7 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    //BOTTOM Toolbar
+    //BOTTOM Toolbar actions
     //action to pick imahe from camera roll / albums
     @IBAction func pickAnImage(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
@@ -64,21 +73,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         
         //Configure initial UI properties
-        //Top UILabel
-        topTextField.delegate = self
-        topTextField.defaultTextAttributes = textFieldAttributes
-        topTextField.textAlignment = .center
-        
-        //Bottom UILabel
-        bottomTextField.delegate = self
-        bottomTextField.defaultTextAttributes = textFieldAttributes
-        bottomTextField.textAlignment = .center
-        
-        //set other UI properties
         configureUI()
+        configureTextFieldAttributes()
     }
     
-   
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -96,9 +96,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    func setTextFieldAttributes() -> [NSAttributedString.Key : Any] {
+        return [
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.strokeWidth: -5
+        ]
+    }
+    
+    
+    func configureTextFieldAttributes() {
+        let textFields = [topTextField, bottomTextField]
+        let textFieldAttributes = setTextFieldAttributes()
+        
+        for textField in textFields {
+            if let textField = textField {
+                textField.delegate = self
+                textField.defaultTextAttributes = textFieldAttributes
+                textField.textAlignment = .center
+            }
+        }
+    }
+    
+    
     func configureUI() {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        topTextField.text = DefaultText.top
+        bottomTextField.text = DefaultText.bottom
         imagePickerView.image = nil
         
         //button states
@@ -107,9 +131,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    func toolbarsAre(hidden: Bool) {
+        topToolbar.isHidden = hidden
+        bottomToolbar.isHidden = hidden
+    }
+    
+    
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar
+        //Hide toolbar and navbar
+        toolbarsAre(hidden: true)
 
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -118,7 +149,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        // TODO: Show toolbar and navbar
+        //Show toolbar and navbar
+        toolbarsAre(hidden: false)
         
         return memedImage
     }
@@ -137,7 +169,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.save(meme: image)
                 print("Success! Share completed")
             
-            //if share failed (like if user exited)
+            //if share didnt save (eg. if user exited)
             } else {
                 print("User cancelled share")
             }
@@ -154,7 +186,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func save(meme image: UIImage) {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: image)
+        meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: image)
         
         // TODO: Use meme object in memeMe 2.0
     }
@@ -166,6 +198,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //set imageView to image (from camera or selected from album)
         if let image = info[.originalImage] as? UIImage {
             imagePickerView.image = image
+            imagePickerView.contentMode = .scaleAspectFit
             
             //enable share action
             shareActionButton.isEnabled = true
@@ -180,7 +213,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         //only clear text field when text is placeholder text
-        guard textField.text == "TOP" || textField.text == "BOTTOM" else { return }
+        guard textField.text == DefaultText.top || textField.text == DefaultText.bottom else { return }
         textField.text = ""
     }
     
@@ -192,14 +225,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         
+        //set default texts if text field is empty
         if textField.text!.isEmpty {
             
             switch textField.tag {
             case 0:
-                textField.text = "TOP"
+                textField.text = DefaultText.top
                 
             case 1:
-                textField.text = "BOTTOM"
+                textField.text = DefaultText.bottom
                 
             default:
                 break
@@ -207,7 +241,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     
         //set cancel button state
-        cancelButton.isEnabled = textField.text == "TOP" || textField.text == "BOTTOM" ? false : true
+        cancelButton.isEnabled = topTextField.text == DefaultText.top && bottomTextField.text == DefaultText.bottom ? false : true
     }
     
     
