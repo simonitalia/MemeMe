@@ -232,16 +232,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yxZ-2m-4iZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yxZ-2m-4iZ">
+                                <rect key="frame" x="5" y="5" width="365" height="657"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="oDo-E8-3pI" firstAttribute="bottom" secondItem="yxZ-2m-4iZ" secondAttribute="bottom" id="C1V-PC-99M"/>
-                            <constraint firstItem="yxZ-2m-4iZ" firstAttribute="top" secondItem="oDo-E8-3pI" secondAttribute="top" id="GIg-nE-Orj"/>
-                            <constraint firstItem="oDo-E8-3pI" firstAttribute="trailing" secondItem="yxZ-2m-4iZ" secondAttribute="trailing" id="XKS-UD-8MW"/>
-                            <constraint firstItem="yxZ-2m-4iZ" firstAttribute="leading" secondItem="oDo-E8-3pI" secondAttribute="leading" id="tkw-6g-pD5"/>
+                            <constraint firstItem="oDo-E8-3pI" firstAttribute="bottom" secondItem="yxZ-2m-4iZ" secondAttribute="bottom" constant="5" id="Wf0-Po-yE5"/>
+                            <constraint firstItem="yxZ-2m-4iZ" firstAttribute="top" secondItem="oDo-E8-3pI" secondAttribute="top" constant="5" id="Y1Z-zr-3AV"/>
+                            <constraint firstItem="oDo-E8-3pI" firstAttribute="trailing" secondItem="yxZ-2m-4iZ" secondAttribute="trailing" constant="5" id="ZFq-wh-erZ"/>
+                            <constraint firstItem="yxZ-2m-4iZ" firstAttribute="leading" secondItem="oDo-E8-3pI" secondAttribute="leading" constant="5" id="sMg-xa-5E1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oDo-E8-3pI"/>
                     </view>
@@ -251,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXJ-xh-JPf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1561" y="2482"/>
+            <point key="canvasLocation" x="1560.8" y="2481.4092953523241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5x9-3o-mvQ">
