@@ -22,7 +22,6 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
     @IBOutlet weak var memeFlowLayout: UICollectionViewFlowLayout!
     
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -30,6 +29,7 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     
+    //reload data
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
@@ -95,5 +95,4 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
         // Present the view controller using navigation
         navigationController!.pushViewController(vc, animated: true)
     }
-
 }
