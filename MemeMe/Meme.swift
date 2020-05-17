@@ -14,3 +14,4 @@ struct Meme {
     let originalImage: UIImage
     let memedImage: UIImage
 }
+

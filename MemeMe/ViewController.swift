@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     //properties
-    var meme: Meme!
     var imagePicker: UIImagePickerController!
     
     //MARK:- storyboard outlets
@@ -187,9 +186,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func save(meme image: UIImage) {
-        meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: image)
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: image)
         
-        // TODO: Use meme object in memeMe 2.0
+        //add generated meme to shared meme data array
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     
