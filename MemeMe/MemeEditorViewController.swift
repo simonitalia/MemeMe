@@ -8,17 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    
+
     //default text
     enum DefaultText {
         static let top = "TOP"
         static let bottom = "BOTTOM"
     }
 
+    
     //properties
     var imagePicker: UIImagePickerController!
+    
     
     //MARK:- storyboard outlets
     //toolbars
@@ -26,7 +28,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     //action buttons
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var shareActionButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
@@ -47,7 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        configureUI()
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -75,7 +76,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         configureUI()
         configureTextFieldAttributes()
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,7 +127,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //button states
         shareActionButton.isEnabled = false
-        cancelButton.isEnabled = false
     }
     
     
@@ -191,6 +190,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //add generated meme to shared meme data array
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memes.append(meme)
+        print("Shared Memes arary updated. No. of Memes: \(appDelegate.memes.count)")
     }
     
     
@@ -204,7 +204,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             //enable share action
             shareActionButton.isEnabled = true
-            cancelButton.isEnabled = true
         }
         
         //dimiss ImagePickerController
@@ -240,11 +239,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             default:
                 break
             }
-        }
-    
-        //set cancel button state
-        if imagePickerView.image == nil {
-            cancelButton.isEnabled = topTextField.text == DefaultText.top && bottomTextField.text == DefaultText.bottom ? false : true
         }
     }
     
