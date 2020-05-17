@@ -180,6 +180,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             
             //dismiss activityVC
             activityVC.dismiss(animated: true, completion: nil)
+            
+            //dismiss MemeEditorVC
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
