@@ -54,7 +54,6 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
 
-
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

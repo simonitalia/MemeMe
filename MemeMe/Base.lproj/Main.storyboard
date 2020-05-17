@@ -258,7 +258,7 @@
         <scene sceneID="5x9-3o-mvQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HvW-UI-ckk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" id="GHg-4S-2YG"/>
+                    <tabBarItem key="tabBarItem" title="" image="Table" id="GHg-4S-2YG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FVs-av-JAl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -277,7 +277,7 @@
         <scene sceneID="Gvi-4G-8WN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Fk-wQ-vdT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="square.grid.3x2.fill" catalog="system" id="GV9-nq-h5E"/>
+                    <tabBarItem key="tabBarItem" title="" image="Collection" id="GV9-nq-h5E"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Pe-GF-XzJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -313,10 +313,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jRR-3B-IZe"/>
+        <segue reference="Jd7-Mc-d3d"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="square.grid.3x2.fill" catalog="system" width="128" height="80"/>
+        <image name="Collection" width="30" height="30.5"/>
+        <image name="Table" width="30" height="30"/>
     </resources>
 </document>

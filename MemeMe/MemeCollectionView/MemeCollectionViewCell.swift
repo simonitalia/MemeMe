@@ -12,5 +12,4 @@ class MemeCollectionViewCell: UICollectionViewCell {
     
     //storyboard outlet
     @IBOutlet weak var memeImageView: UIImageView!
-    
 }
