@@ -38,7 +38,6 @@ class MemesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Table View loaded Memes array with \(memes.count) items")
         return memes.count
     }
 

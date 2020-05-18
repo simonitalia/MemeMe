@@ -17,10 +17,6 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
         return appDelegate.memes
     }
     
-    
-    //storyboard outlets
-    @IBOutlet weak var memeFlowLayout: UICollectionViewFlowLayout!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +39,11 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
     
     
     func configureCollectionViewFlowLayout() {
-        let space:CGFloat = 3.0
-        let width = (view.frame.size.width - (2 * space)) / 3.0
-        let height = (view.frame.size.height - (2 * space)) / 3.0
-
-        memeFlowLayout.minimumInteritemSpacing = space
-        memeFlowLayout.minimumLineSpacing = space
-        memeFlowLayout.itemSize = CGSize(width: width, height: height)
-        memeFlowLayout.scrollDirection = .horizontal
+        let layout = configureCompositionalLayout()
+        collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
-
+    
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -61,7 +51,6 @@ class MemesCollectionViewController: UICollectionViewController, UICollectionVie
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("CollectionView loaded Memes array with \(memes.count) items")
         return memes.count
     }
 
