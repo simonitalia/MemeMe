@@ -53,23 +53,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A63E3B82470F011000B594F /* MemeTableView */ = {
+		2A63E3B82470F011000B594F /* MemesTableView */ = {
 			isa = PBXGroup;
 			children = (
 				2AE07AE7246FF3660022847B /* MemesTableViewController.swift */,
 				2A63E3B62470F002000B594F /* MemeTableViewCell.swift */,
 			);
-			path = MemeTableView;
+			path = MemesTableView;
 			sourceTree = "<group>";
 		};
-		2A63E3BB2470F058000B594F /* MemeCollectionView */ = {
+		2A63E3BB2470F058000B594F /* MemesCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				2AE07AE9246FF3970022847B /* MemesCollectionViewController.swift */,
 				2A43DB16247219430059BEE0 /* MemesCollectionViewController+Extension.swift */,
+				2AE07AE9246FF3970022847B /* MemesCollectionViewController.swift */,
 				2A63E3B92470F052000B594F /* MemeCollectionViewCell.swift */,
 			);
-			path = MemeCollectionView;
+			path = MemesCollectionView;
 			sourceTree = "<group>";
 		};
 		2A82F380246BA68E0077962D = {
@@ -96,8 +96,8 @@
 				2AE07AED2470D24E0022847B /* Enums.swift */,
 				2AAAE87C246D011C009D0C5E /* Meme.swift */,
 				2A82F390246BA68E0077962D /* MemeEditorViewController.swift */,
-				2A63E3B82470F011000B594F /* MemeTableView */,
-				2A63E3BB2470F058000B594F /* MemeCollectionView */,
+				2A63E3B82470F011000B594F /* MemesTableView */,
+				2A63E3BB2470F058000B594F /* MemesCollectionView */,
 				2AE07AEB2470D1D80022847B /* MemeDetailViewController.swift */,
 				2A82F392246BA68F0077962D /* Main.storyboard */,
 				2A82F395246BA6920077962D /* Assets.xcassets */,
